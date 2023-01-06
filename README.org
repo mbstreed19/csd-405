@@ -1,0 +1,3 @@
+#+title: Readme
+#+author: Michael Streed
+#+description: This is a repository to hold my assignments for my intermediate Java Programming class
