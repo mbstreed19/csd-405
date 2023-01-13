@@ -72,12 +72,17 @@ class Fan {
     }
 
     public void fanOn() {
-        this.fanOn = true;
+        if (this.fanOn == false) {
+            this.fanOn = true;
+            this.speed = 1;// when fan turns on it starts on slow
+        }
     }
 
     public void fanOff() {
-        this.speed = 0;// I'm going to also set speed to stopped when fan turns off
-        this.fanOn = false;
+        if (this.fanOn == true) {
+            this.speed = 0;// I'm going to also set speed to stopped when fan turns off
+            this.fanOn = false;
+        }
     }
 
     public void setRadius(double newRadius) {
