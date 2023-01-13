@@ -7,10 +7,11 @@
 public class FanTest {
     public static void main(String[] args) {
         Fan fanTest = new Fan();
-        System.out.println(fanTest.getSpeed());
-        System.out.println(fanTest.isFanOn());
-        System.out.println(fanTest.getRadius());
-        System.out.println(fanTest.getColor());
+        // System.out.println(fanTest.getSpeed());
+        // System.out.println(fanTest.isFanOn());
+        // System.out.println(fanTest.getRadius());
+        // System.out.println(fanTest.getColor());
+        System.out.println(fanTest.toString());
 
     }
 }
@@ -26,6 +27,25 @@ class Fan {
     private boolean fanOn;
     private double radius = 6;
     public String color = "white";
+
+    // This is a toString() method for printing out fan details
+    public String toString() {
+        String speedString;
+        if (this.speed == 0) {
+            speedString = "Stopped";
+        }
+        if (this.speed == 1) {
+            speedString = "Slow";
+        }
+        if (this.speed == 2) {
+            speedString = "Medium";
+        }
+        if (this.speed == 3) {
+            speedString = "Fast";
+        }
+        return "Fan speed: " + this.speed + "\nFan on: " + this.fanOn + "\nFan Radius: " + this.radius + "\nFan color: "
+                + this.color;
+    }
 
     // here all all my applicable getter methods
     public int getSpeed() {
@@ -56,6 +76,7 @@ class Fan {
     }
 
     public void fanOff() {
+        this.speed = 0;// I'm going to also set speed to stopped when fan turns off
         this.fanOn = false;
     }
 
