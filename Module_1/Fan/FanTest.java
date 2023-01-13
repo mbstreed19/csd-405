@@ -1,17 +1,32 @@
+
 // Michael Streed
 // 01-13-2023
 // Module 1 assignment
 //
 // The Purpose of this assignment is to create an object called fan and utilize this class to make basic objects.
 // This is the begining of learning about object oriented programming.
+import java.util.Scanner;
+
 public class FanTest {
     public static void main(String[] args) {
-        Fan fanTest = new Fan();
-        // System.out.println(fanTest.getSpeed());
-        // System.out.println(fanTest.isFanOn());
-        // System.out.println(fanTest.getRadius());
-        // System.out.println(fanTest.getColor());
-        System.out.println(fanTest.toString());
+        // a couple of variables to make custom fan
+        double customRadius;
+        String customColor;
+        Fan defaultFan = new Fan();// makes default fan with default values
+        // These statements print out default fan
+        System.out.println("Here is the default fan object:");
+        System.out.println(defaultFan.toString());
+        System.out.println("----------------------------");
+        // makes custom fan asks for input
+        System.out.println("Let's build a custom fan. Enter the radius and color you would like your fan to be.");
+        Scanner input = new Scanner(System.in);
+        customRadius = input.nextDouble();
+        customColor = input.nextLine();
+        Fan customFan = new Fan(customRadius, customColor);// uses constructor with args
+        // prints out the custom fan details
+        System.out.println("Here is your custom fan object:");
+        System.out.println(customFan.toString());
+        System.out.println("----------------------------");
 
     }
 }
@@ -24,7 +39,7 @@ class Fan {
     final int medium = 2;
     final int fast = 3;
     private int speed = 0;
-    private boolean fanOn;
+    private boolean fanOn = false;
     private double radius = 6;
     public String color = "white";
 
@@ -99,13 +114,8 @@ class Fan {
 
     }
 
-    Fan(int newSpeed, boolean fanOn, double newRadius, String newColor) {
-        this.setSpeed(newSpeed);
-        if (fanOn = true) {
-            this.fanOn();
-        } else {
-            this.fanOff();
-        }
+    // it didnt make sense to set on and speed here. better to use getters
+    Fan(double newRadius, String newColor) {
         this.setRadius(newRadius);
         this.setColor(newColor);
     }
