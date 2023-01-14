@@ -27,6 +27,22 @@ public class FanTest {
         System.out.println("Here is your custom fan object:");
         System.out.println(customFan.toString());
         System.out.println("----------------------------");
+        // showcase some functions
+        System.out.println("lets turn on our custom fan. using our setter function, customFan.fanOn()");
+        customFan.fanOn();
+        System.out.println(customFan.toString());
+        System.out.println("----------------------------");
+        System.out.println(
+                "Notice how when we turn on our fan, the speed starts on the lowest setting. we can change that with another setter function, customFan.setSpeed(). lets set it to the fast setting.");
+        customFan.setSpeed(3);
+        System.out.println(customFan.toString());
+        System.out.println("----------------------------");
+        System.out.println("Let's turn the fan off now. and check if it is off with our getter customFan.isFanOn()");
+        customFan.fanOff();
+        System.out.println("The custom fan is on = " + customFan.isFanOn());
+        System.out.println(
+                "let's take a look at the whole fan again notice how the speed is stopped automatically since we turned the fan off.");
+        System.out.println(customFan.toString());
 
     }
 }
@@ -45,7 +61,7 @@ class Fan {
 
     // This is a toString() method for printing out fan details
     public String toString() {
-        String speedString;
+        String speedString = "";
         if (this.speed == 0) {
             speedString = "Stopped";
         }
@@ -58,8 +74,8 @@ class Fan {
         if (this.speed == 3) {
             speedString = "Fast";
         }
-        return "Fan speed: " + this.speed + "\nFan on: " + this.fanOn + "\nFan Radius: " + this.radius + "\nFan color: "
-                + this.color;
+        return "Fan speed: " + speedString + "\nFan on: " + this.fanOn + "\nFan Radius: " + this.radius
+                + "\nFan color: " + this.color;
     }
 
     // here all all my applicable getter methods
@@ -114,7 +130,7 @@ class Fan {
 
     }
 
-    // it didnt make sense to set on and speed here. better to use getters
+    // it didnt make sense to set on/off and speed here. better to use getters
     Fan(double newRadius, String newColor) {
         this.setRadius(newRadius);
         this.setColor(newColor);
