@@ -10,17 +10,55 @@ import java.util.Scanner;
 
 public class UseFans {
     public static void main(String[] args) {
-        // this will loop through and initialize an array of fan objects with default
-        // values.
+        // this scanner is to pick array size.
         Scanner input = new Scanner(System.in);
         System.out.println("How many fans would you like in this array?");
-        int fanCount = 1 + input.nextInt();
+        int fanCount = input.nextInt();
+
+        // this will loop through and initialize an array of fan objects with default
+        // values.
         Fan[] collectFans = new Fan[fanCount];
         for (int i = 0; i < collectFans.length; i++) {
             collectFans[i] = new Fan();
         }
-        input.close();
+
+        // input.close();// closes scanner
+        // System.out.println("I will now list all the fans we have made..");
+        showFans(collectFans);
+
+        // This allows user to pick a fan number to look at on its own
+        // Scanner oneFan = new Scanner(System.in);
+        System.out.println("What fan would you like to edit?");
+        int fanChoice = input.nextInt();
+        Fan pickFan = collectFans[fanChoice];
+        showFan(pickFan, fanChoice);
+        // input.close();
     }
+
+    public static void showFans(Fan[] collectFans) {
+        System.out.println("I will now print out all fans in this array");
+        for (int i = 0; i < collectFans.length; i++) {
+            System.out.println("-------------------");
+            System.out.println("Fan Number: " + (1 + i));
+            System.out.println("Power" + (collectFans[i].isFanOn() ? "On" : "Off"));
+            System.out.println("Fan Speed: " + collectFans[i].getSpeed());
+            System.out.println("Fan Radius: " + collectFans[i].getRadius());
+            System.out.println("Fan color: " + collectFans[i].getColor());
+            System.out.println("-------------------");
+        }
+
+    }
+
+    public static void showFan(Fan fan, int fanChoice) {
+        System.out.println("-------------------");
+        System.out.println("Fan Number: " + fanChoice);
+        System.out.println("Power" + (fan.isFanOn() ? "On" : "Off"));
+        System.out.println("Fan Speed: " + fan.getSpeed());
+        System.out.println("Fan Radius: " + fan.getRadius());
+        System.out.println("Fan color: " + fan.getColor());
+        System.out.println("-------------------");
+    }
+
 }
 
 // my class or template of a fan object
