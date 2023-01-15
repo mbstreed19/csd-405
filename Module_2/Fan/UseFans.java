@@ -28,11 +28,24 @@ public class UseFans {
 
         // This allows user to pick a fan number to look at on its own
         // Scanner oneFan = new Scanner(System.in);
-        System.out.println("What fan would you like to edit?");
-        int fanChoice = input.nextInt();
-        Fan pickFan = collectFans[fanChoice];
-        showFan(pickFan, fanChoice);
-        // input.close();
+        boolean keepEditFans = true;
+        while (keepEditFans == true) {
+            System.out.println(input.toString());
+            System.out.println("What fan would you like to edit?");
+            int fanChoice = input.nextInt();
+            Fan pickFan = collectFans[fanChoice];
+            showFan(pickFan, fanChoice);
+            editFan(pickFan);
+            if (input.hasNext("q")) {
+                keepEditFans = false;
+            } else {
+                System.out.println("Invalid input. Please enter a valid number or 'q' to quit.");
+            }
+        }
+        showFans(collectFans);
+        input.close();
+        System.out.println("Thanks for using this fan editor ");
+
     }
 
     public static void showFans(Fan[] collectFans) {
@@ -57,6 +70,51 @@ public class UseFans {
         System.out.println("Fan Radius: " + fan.getRadius());
         System.out.println("Fan color: " + fan.getColor());
         System.out.println("-------------------");
+    }
+
+    public static void editFan(Fan fan) {
+        Scanner edit = new Scanner(System.in);
+        Boolean stillEdit = true;
+        while (stillEdit == true) {
+            System.out.println("would you like to edit this fans color, radius, power, or speed? enter q to quit.");
+            String choice = edit.nextLine();
+            if (choice.equals("q")) {
+                stillEdit = false;
+            } else if (choice.equals("color")) {
+                System.out.println("What Color would you like this fan to be?");
+                String newColor = edit.nextLine();
+                fan.setColor(newColor);
+            } else if (choice.equals("radius")) {
+                System.out.println("What radius would you like this fan to be?");
+                double newRadius = edit.nextDouble();
+                fan.setRadius(newRadius);
+            } else if (choice.equals("power")) {
+                if (fan.isFanOn() == true) {
+                    fan.fanOff();
+                } else {
+                    fan.fanOn();
+                }
+
+            } else if (choice.equals("speed")) {
+                System.out.println("What speed would you like this fan to be? Slow, Medium, or Fast?");
+                String newSpeed = edit.nextLine();
+                int newSpeedInt = 0;
+                if (newSpeed == "slow")
+                    newSpeedInt = 1;
+                if (newSpeed == "medium")
+                    newSpeedInt = 2;
+                if (newSpeed == "fast")
+                    newSpeedInt = 3;
+                fan.setSpeed(newSpeedInt);
+            }
+
+            else {
+                System.out.println("please pick 'q', 'color', 'radius', 'power', or 'speed'.");
+            }
+
+        }
+        // edit.rem
+        edit.close();
     }
 
 }
