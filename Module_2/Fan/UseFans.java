@@ -26,22 +26,13 @@ public class UseFans {
         // System.out.println("I will now list all the fans we have made..");
         showFans(collectFans);
 
-        // This allows user to pick a fan number to look at on its own
-        // Scanner oneFan = new Scanner(System.in);
-        boolean keepEditFans = true;
-        while (keepEditFans == true) {
-            System.out.println(input.toString());
-            System.out.println("What fan would you like to edit?");
-            int fanChoice = input.nextInt();
-            Fan pickFan = collectFans[fanChoice];
-            showFan(pickFan, fanChoice);
-            editFan(pickFan);
-            if (input.hasNext("q")) {
-                keepEditFans = false;
-            } else {
-                System.out.println("Invalid input. Please enter a valid number or 'q' to quit.");
-            }
-        }
+        // This allows user to pick a fan number to look at on its own and make edits
+        System.out.println("What fan would you like to edit?");
+        int fanChoice = input.nextInt();
+        Fan pickFan = collectFans[fanChoice];
+        showFan(pickFan, fanChoice);
+        editFan(pickFan);
+
         showFans(collectFans);
         input.close();
         System.out.println("Thanks for using this fan editor ");
@@ -113,7 +104,7 @@ public class UseFans {
             }
 
         }
-        // edit.rem
+
         edit.close();
     }
 
