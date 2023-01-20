@@ -59,4 +59,34 @@ class MikeyInteger {
 
     }
 
+    // These are my static methods with (int) signatures
+    // Checks if the int passed to the method is even
+    public boolean isEven(int number) {
+        if (number % 2 == 0) {
+            return true;
+        } else {
+            return false;
+        }
+    }
+
+    // Checks if the value of the int passes to the method is odd
+    public boolean isOdd(int number) {
+        if (number % 2 == 0) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    // checks if the value of the int passed to parameter is prime.
+    public boolean isPrime(int number) {
+        for (int i = 2; i <= (number / 2); i++) {
+            if (this.mikey % i == 0) {
+                return false;
+            }
+        }
+        return true;
+
+    }
+
 }
