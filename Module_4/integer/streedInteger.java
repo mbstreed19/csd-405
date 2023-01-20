@@ -29,6 +29,8 @@ class MikeyInteger {
         this.mikey = newMikey;
     }
 
+    // These are my non static methods
+    // Checks if the value of this.mikey() is even
     public boolean isEven() {
         if (this.mikey % 2 == 0) {
             return true;
@@ -37,6 +39,7 @@ class MikeyInteger {
         }
     }
 
+    // Checks if the value of this.mikey() is odd
     public boolean isOdd() {
         if (this.mikey % 2 == 0) {
             return false;
@@ -45,13 +48,15 @@ class MikeyInteger {
         }
     }
 
-    public boolean isPrime(){
-        if (){
-            return true;
+    // checks if the value of this.mikey() is prime.
+    public boolean isPrime() {
+        for (int i = 2; i <= (this.mikey / 2); i++) {
+            if (this.mikey % i == 0) {
+                return false;
+            }
         }
-        else {
-            return false;
-        }
+        return true;
+
     }
 
 }
