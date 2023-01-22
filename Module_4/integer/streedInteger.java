@@ -12,7 +12,7 @@ public class streedInteger {
         Integer sueInteger = new Integer(4);
 
         // testing the instance versions of methods
-        System.out.println("Testing the instance version of methods");
+        System.out.println("Testing the instance version of methods...");
         System.out.println("Is Anna's number even?: " + annaInteger.isEven()); // true
         System.out.println("Is Larry's number odd?: " + larryInteger.isOdd()); // false
         System.out.println("Is Sue's number prime?: " + sueInteger.isPrime()); // false
@@ -24,7 +24,7 @@ public class streedInteger {
         System.out.println("Integer.isPrime(sueInteger) = " + Integer.isPrime(sueInteger)); // false
         System.out.println("-------------------------------------");
         // Testing the static methods with random integers passed to them
-        System.out.println("Testing static functions with random integers passed to them");
+        System.out.println("Testing static functions with random integers passed to them...");
         // int randomNum = (int) (Math.random() * 30) + 1;
         int[] randomNums = new int[3];
         for (int i = 0; i < randomNums.length; i++) {
@@ -32,9 +32,34 @@ public class streedInteger {
             System.out.println("is " + randomNums[i] + " even?: " + Integer.isEven(randomNums[i]));
             System.out.println("is " + randomNums[i] + " Odd?: " + Integer.isOdd(randomNums[i]));
             System.out.println("is " + randomNums[i] + " prime?: " + Integer.isPrime(randomNums[i]));
-
         }
         System.out.println("------------------------------------");
+        // test code for equals functions
+        System.out.println("Testing equals() functions...");
+        Integer[] integers = new Integer[3];
+        integers[0] = annaInteger;
+        integers[1] = larryInteger;
+        integers[2] = sueInteger;
+
+        for (int i = 0; i < integers.length; i++) {
+            int randomNum = (int) (Math.random() * 10) + 1;
+            if (i == 0) {
+                System.out.println(
+                        "Testing annaInteger vs a random number 1-10, then annaInteger, larryInteger,and finally sueInteger");
+            } else if (i == 1) {
+                System.out.println(
+                        "Testing larryInteger vs a random number 1-10, then annaInteger, larryInteger,and finally sueInteger");
+            } else if (i == 2) {
+                System.out.println(
+                        "Testing sueInteger vs a random number 1-10, then annaInteger, larryInteger,and finally sueInteger");
+            }
+            System.out.println("The random number is: " + randomNum);
+            System.out.println(integers[i].equals(randomNum));
+            System.out.println(integers[i].equals(integers[0]));
+            System.out.println(integers[i].equals(integers[1]));
+            System.out.println(integers[i].equals(integers[2]));
+
+        }
 
     }
 }
