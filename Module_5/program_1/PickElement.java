@@ -34,11 +34,11 @@ public class PickElement {
                 // Print the element at the specified index
                 System.out.println("Element at index " + arrayIndex + ": " + arrList.get(arrayIndex - 1));
             } else {
-                throw new IndexOutOfBoundsException();
+                throw new IndexOutOfBoundsException();// Throws this if out of range
             }
-        } catch (IndexOutOfBoundsException e) {
-            System.out.println("Out of Bounds: Did not pick integer between (1-" + numOfElements + ")");
-        } catch (NumberFormatException e) {
+        } catch (IndexOutOfBoundsException e) {// Prints when this error happens
+            System.out.println("Did not pick integer between (1-" + numOfElements + ")");
+        } catch (NumberFormatException e) {// Prints if user didnt write good number
             System.out.println("Did not enter a numerical value");
         }
 
